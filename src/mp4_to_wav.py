@@ -3,7 +3,7 @@ import os
 from pydub import AudioSegment
   # Добавляем импорт модуля os
 
-
+a=5
 
 def extract_audio_from_video_with_pydub(video_filepath, output_audio_filepath):
     """

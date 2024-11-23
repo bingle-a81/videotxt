@@ -2,10 +2,11 @@ from vosk import Model, KaldiRecognizer
 import wave
 
 # Укажите путь к вашей модели
+a=55
 
 model_path = 'vosk-model-ru-0.42'
 
-model = Model(model_path)
+model =''# Model(model_path)
 
 def transcribe_audio(file_path):
     # Откройте аудиофайл с помощью wave
@@ -25,10 +26,10 @@ def transcribe_audio(file_path):
     result = rec.FinalResult()
     return result
 
-audio_file_path = 'output_audio.wav'  # Замените на путь к вашему аудиофайлу
-text = transcribe_audio(audio_file_path)
-# print(text)
+# audio_file_path = 'output_audio.wav'  # Замените на путь к вашему аудиофайлу
+# text = transcribe_audio(audio_file_path)
+# # print(text)
 
-with open("transcribed_text.txt", "w") as text_file:
-    text_file.write(text)
-    print("Текст успешно сохранен в файл 'transcribed_text.txt'.")
+# with open("transcribed_text.txt", "w") as text_file:
+#     text_file.write(text)
+#     print("Текст успешно сохранен в файл 'transcribed_text.txt'.")
