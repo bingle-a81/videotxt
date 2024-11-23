@@ -1,15 +1,19 @@
 import src
 
 
-import logging.config
+
+# import logging.config
 
 # logging.config.fileConfig(".\\src\\log.ini")
 # logger = logging.getLogger('sLogger')
 # # log something
 # logger.debug('debug message')
 
+print("d")
+print('t')
 print(src.mp4_to_wav.a)
-
+print(f'd')
+print(f't')
 
 # if __name__ == '__main__':
 #     src.
