@@ -30,7 +30,3 @@ def extract_audio_from_video_with_pydub(video_filepath, output_audio_filepath):
     # Удаляем временный аудиофайл
     os.remove(temp_audio_filepath)
 
-# Пример использования функции
-video_filepath = '1.mp4'  # Укажите путь к вашему видеофайлу
-output_audio_filepath = 'output_audio.wav'  # Укажите, куда сохранить аудиофайл
-extract_audio_from_video_with_pydub(video_filepath, output_audio_filepath)
