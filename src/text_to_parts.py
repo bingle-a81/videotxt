@@ -1,5 +1,7 @@
 import json
 
+
+
 def extract_text_from_json(input_file):
     encodings = ['windows-1251']  # Try different encodings
     # encodings = ['utf-8']

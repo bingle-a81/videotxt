@@ -1,7 +1,9 @@
-import telebot
+#telebot
+
 import logging
 import smtplib
-
+import telebot
+import logging.config
 
 class Telegram_bot_handler(logging.Handler):
     def __init__(self, token: str, chat_id: str):
@@ -19,8 +21,8 @@ class Telegram_bot_handler(logging.Handler):
 
 
 class My_email_handler(logging.Handler):
-    def __init__(self, server, port, email, passwd):
-        logging.Handler.__init__(self)
+    def __init__(self, server:str, port: int, email: str, passwd: str):
+        super().__init__()
         self.server = server
         self.port = port
         self.email = email
@@ -56,3 +58,4 @@ class My_email_handler(logging.Handler):
             raise err
         finally:
             smtp.quit()
+

@@ -2,11 +2,8 @@ from vosk import Model, KaldiRecognizer
 import wave
 
 # Укажите путь к вашей модели
-a=55
-
 model_path = 'vosk-model-ru-0.42'
-
-model =''# Model(model_path)
+model = Model(model_path)
 
 def transcribe_audio(file_path):
     # Откройте аудиофайл с помощью wave
