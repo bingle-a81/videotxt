@@ -20,9 +20,10 @@ def transcribe_audio(input_audio_filepath,output_txt_file,model_path):
 
     # Получение итогового результата
     result = rec.FinalResult()
+    slpit_file(output_txt_file, result)
+
+def slpit_file(output_txt_file, result):
     a=re.split('}],', result, maxsplit=0, flags=0)[-1]
-    # with open(output_txt_file, "w") as text_file:
-    #     text_file.write(a)
     pat=re.finditer(r'\b\w+?\b',a)
     st=''
     q=1
