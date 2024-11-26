@@ -13,32 +13,19 @@ def path_folder(path_file:str):
 
 if __name__ == '__main__':
     a=".\\.tmp\\video\\"
+    model_path = '.\\.tmp\\vosk-model-ru-0.42'
+    # model_path='.\\.tmp\\vosk-model-en-us-0.42-gigaspeech'
     logger = logging.getLogger(__name__)
     logger.debug('start')
     for x in src.path_folder.file_search(a):
-        # print(x)
-        # x1=x.replace('video','audio')
-        # print(x1)
-        # a1=x.split('\\')[-1].split('.')[-2]
         audio_file_name=x.replace('video','audio').replace('mp4','wav')
         path_folder(audio_file_name)
         txt_file_name=x.replace('video','text').replace('mp4','txt')
         path_folder(txt_file_name)
-        # audio_file_name=os.path.join(".\\.tmp\\audio\\",x.split('\\')[-2], a1+'.wav')
-        # print(audio_file_name)
-        # src.mp4_to_wav.extract_audio_from_video_with_pydub(x,audio_file_name)
-        # text=src.audio_to_text.transcribe_audio(audio_file_name)
-        # with open(txt_file_name,'w') as f:
-        #     f.write(text)
+        src.mp4_to_wav.extract_audio_from_video_with_pydub(x,audio_file_name)
+        src.audio_to_text.transcribe_audio(audio_file_name,txt_file_name,model_path)
         logger.debug(x)
 
     logger.debug('end')
 
-
-
-
-
-
-    # for i in logging.root.manager.loggerDict:
-    #     print(i)
 
