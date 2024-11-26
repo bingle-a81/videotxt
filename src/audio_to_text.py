@@ -21,6 +21,20 @@ def transcribe_audio(input_audio_filepath,output_txt_file,model_path):
     # Получение итогового результата
     result = rec.FinalResult()
     a=re.split('}],', result, maxsplit=0, flags=0)[-1]
-    with open(output_txt_file, "w") as text_file:
-        text_file.write(a)
-
+    # with open(output_txt_file, "w") as text_file:
+    #     text_file.write(a)
+    pat=re.finditer(r'\b\w+?\b',a)
+    st=''
+    q=1
+    for i in pat:
+        if len(st)<3950:
+            st=st+' '+i[0]
+        else:
+            with open(output_txt_file+'('+str(q)+').txt','w') as f:
+                f.write(st)            
+            q+=1
+            st=i[0]
+    else:
+        if len(st)!=0:
+            with open(output_txt_file+str(q)+'.txt','w') as f:
+                f.write(st)
