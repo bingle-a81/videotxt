@@ -1,5 +1,5 @@
 import moviepy
-import os
+import os,shutil
 from pydub import AudioSegment
   # Добавляем импорт модуля os
 
@@ -12,6 +12,7 @@ def extract_audio_from_video_with_pydub(video_filepath, output_audio_filepath):
     - video_filepath: Путь к исходному видеофайлу.
     - output_audio_filepath: Путь к выходному аудиофайлу в формате WAV.
     """
+
     # Загружаем видео и извлекаем аудио как временный файл
     video_clip = moviepy.VideoFileClip(video_filepath)
     temp_audio_filepath = "temp_audio.mp3"  # Используем временный файл для аудио

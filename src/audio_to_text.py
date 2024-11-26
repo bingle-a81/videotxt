@@ -1,13 +1,15 @@
 from vosk import Model, KaldiRecognizer
 import wave
+import re
 
-# Укажите путь к вашей модели
-model_path = 'vosk-model-ru-0.42'
-model = Model(model_path)
 
-def transcribe_audio(file_path):
+def transcribe_audio(input_audio_filepath,output_txt_file):    
+    # Укажите путь к вашей модели
+    model_path = '.\\.tmp\\vosk-model-ru-0.42'
+    # model_path='.\\.tmp\\vosk-model-en-us-0.42-gigaspeech'
+    model = Model(model_path)
     # Откройте аудиофайл с помощью wave
-    wf = wave.open(file_path, "rb")
+    wf = wave.open(input_audio_filepath, "rb")
     rec = KaldiRecognizer(model, wf.getframerate())
     rec.SetWords(True)  # Чтобы получать слова вместо простых результатов
 
@@ -21,7 +23,9 @@ def transcribe_audio(file_path):
 
     # Получение итогового результата
     result = rec.FinalResult()
-    return result
+    a=re.split('}],', result, maxsplit=0, flags=0)[-1]
+    with open(output_txt_file, "w") as text_file:
+        text_file.write(a)
 
 # audio_file_path = 'output_audio.wav'  # Замените на путь к вашему аудиофайлу
 # text = transcribe_audio(audio_file_path)

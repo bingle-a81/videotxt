@@ -9,4 +9,7 @@
 from . import castorm_handlers_filters
 from . import mp4_to_wav
 from . import path_folder
+from . import audio_to_text
+from . import text_to_parts
+
 
