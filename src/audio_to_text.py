@@ -37,5 +37,5 @@ def slpit_file(output_txt_file, result):
             st=i[0]
     else:
         if len(st)!=0:
-            with open(output_txt_file+str(q)+'.txt','w') as f:
+            with open(output_txt_file+'('+str(q)+').txt','w') as f:
                 f.write(st)
